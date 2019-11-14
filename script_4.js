@@ -20,7 +20,7 @@ const entrepreneurs = [
 ];
 
 // Filtre dans cette liste les entrepreneurs qui sont nés dans les années 70
-yearEntrepreneur = entrepreneurs.filter(entrepreneur => entrepreneur.year > 1970 && entrepreneur.year < 1980) 
+yearEntrepreneur = entrepreneurs.filter(entrepreneur => entrepreneur.year > 1969 && entrepreneur.year < 1980) 
 console.log(yearEntrepreneur)
 
 // Sors une array qui contient le prénom et le nom des entrepreneurs 
@@ -28,7 +28,15 @@ let map1 = entrepreneurs.map((entrepreneur) => entrepreneur.first +  " " + entre
 console.log(map1);
 
 // Quel âge aurait chaque inventeur aujourd'hui ?
-var age = 2019 - entrepreneurs.year
-entrepreneurs.push(age)
-console.log(entrepreneurs)
+for(let index in entrepreneurs){
+  console.log(entrepreneurs[index].first + " " + entrepreneurs[index].last + " a " + String(2019 - entrepreneurs[index].year) + " ans.");
+}
+console.log(" ");
+
+// Trie les entrepreneurs par ordre alphabétique du nom de famille.
+var lastName = entrepreneurs.map((entrepreneur) => entrepreneur.last);
+lastName.sort(function(a,b){
+return a.last.localeCompare(b.last);
+})
+
 
